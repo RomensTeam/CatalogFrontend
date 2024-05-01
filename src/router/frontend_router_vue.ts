@@ -7,10 +7,37 @@ import CreatePost from '../views/posts/CreatePost.vue'
 
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
+import DeveloperView from "@/views/DeveloperView.vue";
+import GeekPortalView from "@/views/geekPortal/GeekPortalView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
+        {
+            path: '/posts',
+            name: 'posts',
+            component: ViewPosts
+        },
+        {
+            path: '/geekPlaces/{?place}',
+            name: 'geekPlaces',
+            component: GeekPortalView
+        },
+        {
+            path: '/geekportal/',
+            name: 'geekportal',
+            component: GeekPortalView
+        },
+        {
+            path: '/geekProfiles/{?profile}',
+            name: 'geekProfiles',
+            component: GeekPortalView
+        },
+        {
+            path: '/developer',
+            name: 'developer',
+            component: DeveloperView
+        },
         {
             path: '/posts',
             name: 'posts',

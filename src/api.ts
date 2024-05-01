@@ -2,7 +2,7 @@ import axios from "axios";
 import {useRouter} from "vue-router";
 
 const Api = axios.create({
-    baseURL: "http://localhost",
+    baseURL: "https://api.romens.org",
     withCredentials: true,
 });
 

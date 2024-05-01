@@ -7,7 +7,7 @@
                 </button>
                 <a class="navbar-brand" href="#" :title="$t('header.navbar_title')">
                     <img v-show="logo" class="navbar-brand" data-bs-theme="dark" :src="logo" />
-                    <span v-show="!logo">{{$t('header.navbar_title')}}</span>
+                    <span v-show="!logo">{{appName}}</span>
                 </a>
                 <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
                     <div class="offcanvas-header">
@@ -49,7 +49,17 @@ import router from "@/router/frontend_router_vue";
 
 import { ref } from "vue";
 const user = useUserStore();
+const props = defineProps(['app']);
 const logo = ref(window.appSettings.logo.wide);
+const app = ref({});
+const appName = ref('Catalog');
+
+if (props.app) {
+  app.value = props.app;
+  logo.value = app.value.avatar;
+  appName.value = app.value.name;
+}
+
 
 function logout() {
     user.logout();
